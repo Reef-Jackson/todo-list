@@ -8,7 +8,6 @@ struct Task {
 
 fn main() {
     let mut task_collection = Vec::<Task>::new();
-
         loop {
             match take_generic_command().as_str() {
                 "N" | "n" => {
