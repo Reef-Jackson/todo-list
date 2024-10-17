@@ -1,4 +1,4 @@
-use std::io::{self, stdin};
+use std::{fs, io::{self, stdin}, path::Path};
 
 #[derive(Debug)]
 struct Task {
@@ -18,7 +18,7 @@ fn main() {
                             continue;
                         }
                     };
-                },
+                }
                 "V" | "v" => {
                     if task_collection.is_empty() {
                         println!("There are no tasks right now.");
@@ -26,6 +26,9 @@ fn main() {
                     } else {
                         print_tasks(&task_collection);
                     }
+                }
+                "Q" | "q" => {
+                    std::process::exit(0);
                 }
                 _ => {
                     println!("Invalid Command, please enter one of the valid commands.");
@@ -66,4 +69,8 @@ fn print_tasks(task_col: &Vec<Task>) {
     for task in task_iter {
         println!("{:#?}", task);
     }   
+}
+
+fn write_to_file() {
+    todo!()
 }
